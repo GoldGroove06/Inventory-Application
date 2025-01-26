@@ -1,11 +1,11 @@
 const express = require('express')
 const app = express()
-const categoryRoute = require("./routes/categoryRoute")
-const itemRoute = require('./routes/itemRoute')
+const genreRoute = require("./routes/genreRoute")
+const gameRoute = require('./routes/gameRoute')
 
-app.use('/category', categoryRoute )
+app.use('/genre', genreRoute )
 
-app.use("/item", itemRoute)
+app.use("/game", gameRoute)
 
 app.get('/', (req, res) => {
     res.send("hlo")

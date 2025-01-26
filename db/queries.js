@@ -5,8 +5,8 @@ async function getAllGenre() {
     return rows;
   }
 
-async function getAllGame() {
-    const { rows } = await pool.query("SELECT * FROM game");
+async function getAllGame(genre) {
+    const { rows } = await pool.query("SELECT * FROM game where game_genre = $1", [genre]);
     return rows;
   }
 
