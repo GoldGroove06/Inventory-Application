@@ -5,10 +5,16 @@ async function getAllGenre() {
     return rows;
   }
 
-async function getAllGame(genre) {
-    const { rows } = await pool.query("SELECT * FROM game where game_genre = $1", [genre]);
+
+async function getGenreGame(genreID) {
+    const { rows } = await pool.query("SELECT * FROM game where game_genre = $1", [genreID]);
     return rows;
   }
+
+async function getGame(gameID) {
+  const { rows } = await pool.query("SELECT * FROM game where game_id = $1", [gameID]);
+  return rows;
+}
 
 async function getAllDeveloper() {
     const { rows } = await pool.query("SELECT * FROM developer");
@@ -17,7 +23,8 @@ async function getAllDeveloper() {
 
 module.exports = {
     getAllGenre,
-    getAllGame,
-    getAllDeveloper
+    getGenreGame,
+    getAllDeveloper,
+    getGame
 }
 
