@@ -5,4 +5,5 @@ const homepageRoute = Router()
 
 homepageRoute.get('/',getAllGenres )
 
+
 module.exports = homepageRoute

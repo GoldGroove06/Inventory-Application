@@ -5,8 +5,15 @@ async function getGame (req, res) {
      console.log(gameID  )
      const game = await db.getGame(gameID);
      console.log("Usernames: ", game);
-     res.send(game[0].game_name);
+     res.render("game", {game: game[0]})
+     // res.send(game[0].game_name);
     
 }
 
-module.exports = {getGame}
+async function deleteGame(req, res){
+     const {gameID} = req.params
+     const response = await db.deleteGame(gameID);
+     res.send("deleted")
+}
+
+module.exports = {getGame, deleteGame}
