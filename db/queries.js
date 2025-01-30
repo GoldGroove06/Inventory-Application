@@ -22,30 +22,35 @@ async function getAllDeveloper() {
   }
 
 async function deleteGenre(genreID) {
-  const { rows } = await pool.query("DELETE FROM game where game_id = $1", [genreID]);
+  const { rows } = await pool.query("DELETE FROM game where id = $1", [genreID]);
   return rows;
 }
 
 async function deleteGame(gameID) {
-  const { rows } = await pool.query("DELETE FROM game where game_genre = $1", [gameID]);
+  const { rows } = await pool.query("DELETE FROM game where game_id = $1", [gameID]);
   console.log(rows)
   return rows;
 }
 
-async function editGenre(genreID) {
-  
+async function editGenre(editGenreData) {
+  const { rows } = await pool.query("UPDATE genre SET genre_name = $1 where id = $2", editGenreData);
 }
 
-async function editGame(gameID) {
-
+async function editGame(editGameData) {
+ 
+  const { rows } = await pool.query("UPDATE game SET game_name = $1, game_genre = $2, game_developer = $3 WHERE game_id = $4", editGameData)
+  return rows
 }
 
-async function addGame() {
-  
+async function addGame(addGameData) {
+  console.log(addGameData)
+  const { rows } = await pool.query("INSERT INTO game (game_name, game_genre, game_developer) VALUES($1, $2, $3);", addGameData);
+  return rows;
 }
 
-async function addGenre() {
-  
+async function addGenre(addGenreData) {
+  const { rows } = await pool.query("INSERT INTO genre (genre_name) VALUES($1);", [addGenreData]);
+  return rows;
 }
 
 module.exports = {
@@ -54,6 +59,10 @@ module.exports = {
     getAllDeveloper,
     getGame,
     deleteGame,
-    deleteGenre
+    deleteGenre,
+    addGame,
+    addGenre,
+    editGame,
+    editGenre
 }
 

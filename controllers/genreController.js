@@ -1,5 +1,6 @@
 const db = require("../db/queries");
 
+
 async function getAllGenres (req, res) {
      
      const genres = await db.getAllGenre();
@@ -25,4 +26,19 @@ async function deleteGenre(req, res){
      res.send("deleted")
 }
 
-module.exports = {getAllGenres, getGenre}
+async function addGenre(req, res) {
+     const addGenreData = req.body
+     console.log(addGenreData)
+     const response = await db.addGenre(addGenreData.genre_name)
+     res.send("recieved")
+}
+
+async function editGenre(req, res) {
+     const {id} = req.params
+     const addGenreData = req.body
+     console.log(addGenreData)
+     const response = await db.editGenre([addGenreData.genre_name, id])
+     res.send("recieved")
+}
+
+module.exports = {getAllGenres, getGenre, addGenre, editGenre}
