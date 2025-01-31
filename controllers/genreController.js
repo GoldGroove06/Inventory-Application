@@ -35,10 +35,10 @@ async function addGenre(req, res) {
 
 async function editGenre(req, res) {
      const {id} = req.params
-     const addGenreData = req.body
-     console.log(addGenreData)
-     const response = await db.editGenre([addGenreData.genre_name, id])
+     const  editGenreData = req.body
+    
+     const response = await db.editGenre(editGenreData.genre_name, id)
      res.send("recieved")
 }
 
-module.exports = {getAllGenres, getGenre, addGenre, editGenre}
+module.exports = {getAllGenres, getGenre, addGenre, editGenre, deleteGenre}

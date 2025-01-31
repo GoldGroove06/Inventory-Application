@@ -32,12 +32,15 @@ async function deleteGame(gameID) {
   return rows;
 }
 
-async function editGenre(editGenreData) {
-  const { rows } = await pool.query("UPDATE genre SET genre_name = $1 where id = $2", editGenreData);
+async function editGenre(data, id) {
+  console.log(data, id)
+  
+  const { rows } = await pool.query("UPDATE genre SET genre_name = $1 where id = $2", [data, id]);
+  return rows
 }
 
 async function editGame(editGameData) {
- 
+  
   const { rows } = await pool.query("UPDATE game SET game_name = $1, game_genre = $2, game_developer = $3 WHERE game_id = $4", editGameData)
   return rows
 }

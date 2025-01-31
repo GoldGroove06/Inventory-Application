@@ -1,6 +1,6 @@
 const {Router} = require("express")
-const {getGenre, addGenre} = require("../controllers/genreController")
-const { deleteGenre, editGenre } = require("../db/queries")
+const {getGenre, addGenre, deleteGenre, editGenre} = require("../controllers/genreController")
+
 
 const genreRoute = Router()
 

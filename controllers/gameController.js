@@ -35,7 +35,7 @@ async function editGame(req, res) {
      
      const {game_name, game_genre, game_dev} = req.body
      console.log(game_name, game_genre, game_dev)
-     const response = await db.editGame([game_name, game_genre, game_dev, 10])
+     const response = await db.editGame([game_name, game_genre, game_dev, id])
      res.send(game_name, game_genre, game_dev)
 }
 

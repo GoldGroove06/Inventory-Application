@@ -1,6 +1,6 @@
 const {Router} = require("express")
-const {getGame, deleteGame, addGame} = require("../controllers/gameController")
-const { editGame } = require("../db/queries")
+const {getGame, deleteGame, addGame, editGame} = require("../controllers/gameController")
+
 
 const gameRoute = Router()
 
