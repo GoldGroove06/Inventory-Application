@@ -23,7 +23,7 @@ async function getGenre (req, res) {
 async function deleteGenre(req, res){
      const {genre} = req.params
      const response = await db.deleteGenre(genre);
-     res.send("deleted")
+     res.redirect("/")
 }
 
 async function addGenre(req, res) {

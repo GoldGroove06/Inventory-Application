@@ -20,7 +20,7 @@ async function getGame (req, res) {
 async function deleteGame(req, res){
      const {gameID} = req.params
      const response = await db.deleteGame(gameID);
-     res.send("deleted")
+     res.redirect("/")
 }
 
 async function addGame(req, res) {

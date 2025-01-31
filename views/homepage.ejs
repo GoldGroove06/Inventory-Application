@@ -3,7 +3,12 @@
         <H1> Genres of Game</H1>
         
         <%  genres.map((gerne) => { %>
-            <div><%= gerne.genre_name %></div> <br>
+            <label><%= gerne.genre_name %></label> <button type="button"><a href="/genre/<%= gerne.id %>">View Games</a></button>
+            <form action="/genre/delete/<%= gerne.id %>" method="POST">
+                
+                <button type="submit">Delete Genre</button>
+            </form>
+            <br>
         <% }) %>
     
     </body>

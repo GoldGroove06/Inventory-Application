@@ -22,7 +22,7 @@ async function getAllDeveloper() {
   }
 
 async function deleteGenre(genreID) {
-  const { rows } = await pool.query("DELETE FROM game where id = $1", [genreID]);
+  const { rows } = await pool.query("DELETE FROM genre where id = $1", [genreID]);
   return rows;
 }
 

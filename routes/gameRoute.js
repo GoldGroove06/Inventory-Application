@@ -7,6 +7,6 @@ const gameRoute = Router()
 gameRoute.get("/:gameID", getGame)
 gameRoute.put('/edit/:id', editGame)
 gameRoute.post("/add", addGame)
-gameRoute.delete('/:gameID', deleteGame)
+gameRoute.post('/delete/:gameID', deleteGame)
 
 module.exports = gameRoute
